@@ -46,7 +46,7 @@ class AppWorldAdapter(GEPAAdapter):
             num_processes=1,
             process_index=0,
         )
-        self.agent.gepa_prompt_replace = instruct_prompt
+        self.agent.replace_gepa_prompt(instruct_prompt)
 
         with contextlib.redirect_stdout(io.StringIO()):
             for example in batch:
