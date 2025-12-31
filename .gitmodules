@@ -1,0 +1,3 @@
+[submodule "appworld"]
+	path = appworld
+	url = git@github.com:ace-agent/ace-appworld.git
