@@ -10,6 +10,45 @@
 
 [![PyPI - Version](https://img.shields.io/pypi/v/gepa)](https://pypi.org/project/gepa/) [![PyPI Downloads](https://static.pepy.tech/badge/gepa)](https://pepy.tech/projects/gepa) [![Join the #gepa channel in our Discord](https://dcbadge.limes.pink/api/server/https://discord.gg/A7dABbtmFw?style=flat)](https://discord.gg/A7dABbtmFw)
 
+## How to launch GEPA on Appworld
+
+### Training
+1. Create a virtual environment that has python 3.11 (tested with this version)
+
+2. `cd` into `appworld` and follow the README installation steps, starting from `export APPWORLD_PROJECT_PATH="$(pwd)"` all the way till `appworld download data`
+
+3. Set Appworld root directory to current path
+
+```bash
+export APPWORLD_ROOT="$(pwd)"
+```
+
+4. Go back to root directory of this repo and pip install
+
+```bash
+pip install -e .
+```
+
+5. Run python train command
+
+```bash
+python src/gepa/examples/app-world/train_appworld.py --experiment_name GEPA_offline_with_GT_adaptation
+```
+
+Individual iterations runs will be stored in `appworld/experiments/outputs`
+
+GEPA state will be stored in `gepa_app_world_<model name>`
+
+The input output costs for ONLY the prompt modification will be stored in `appworld_gepa_prompt_modification_pricing.jsonl` by default
+
+### Testing
+
+1. Run python test command
+
+```bash
+python src/gepa/examples/app-world/test_appworld.py --experiment_name GEPA_offline_with_GT_adaptation --appworld_bin_dir_path <abosule path to GEPA state directory> --test_type normal
+```
+
 ## Overview
 
 **GEPA** (Genetic-Pareto) is a framework for **optimizing arbitrary systems composed of text components**—like AI prompts, code snippets, or textual specs—against any evaluation metric. It employs LLMs to reflect on system behavior, using feedback from execution and evaluation traces to drive targeted improvements. Through iterative mutation, reflection, and Pareto-aware candidate selection, GEPA evolves robust, high-performing variants with minimal evaluations, co-evolving multiple components in modular systems for domain-specific gains.
