@@ -15,7 +15,7 @@
 ### Training
 1. Create a virtual environment that has python 3.11 (tested with this version)
 
-2. `cd` into `appworld` and follow the README installation steps, starting from `export APPWORLD_PROJECT_PATH="$(pwd)"` all the way until `appworld download data`
+2. `cd` into `appworld` and follow the [README](https://github.com/ace-agent/ace-appworld/tree/main?tab=readme-ov-file#1-environment-setup) installation steps, starting from `export APPWORLD_PROJECT_PATH="$(pwd)"` all the way until `appworld download data`
 
 3. Set Appworld root directory to current path
 
